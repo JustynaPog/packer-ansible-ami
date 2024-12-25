@@ -1,0 +1,28 @@
+---
+
+- hosts: all
+
+
+  become: true
+  tasks:
+    - name: Install Nginx via apt-get
+      shell: sudo apt-get -y install nginx
+
+      
+
+    - name: Start and enable Nginx service
+      service:
+        name: nginx
+        enabled: yes
+        state: started
+
+    - name: Copy custom Nginx configuration
+      copy:
+        src: nginx.conf
+        dest: /etc/nginx/nginx.conf
+        mode: '0644'
+
+    - name: Restart Nginx to apply configuration
+      service:
+        name: nginx
+        state: restarted
