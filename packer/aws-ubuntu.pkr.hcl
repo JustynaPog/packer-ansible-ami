@@ -25,7 +25,7 @@ source "amazon-ebs" "ubuntu_nginx" {
       virtualization-type = "hvm"
     }
     most_recent = true
-    owners      = ["099720109477"]
+    owners      = ["#######"]
   }
   ssh_username = "ubuntu"
 }
